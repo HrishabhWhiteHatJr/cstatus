@@ -11,16 +11,31 @@
 <link rel="stylesheet" href="css/demo.css" />
 <link rel="stylesheet" href="css/custom.css" />
 <link rel="stylesheet" href="css/navbar.css" />
+<link rel="stylesheet" href="css/table.css" />
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-auth.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="	https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 
-    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+<link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
 <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
 <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-analytics.js"></script>
 
 
 <script type="text/javascript" src="js/firebaseConfig.js"></script>
@@ -34,11 +49,11 @@
 <!-- Side navigation -->
 <div class="sidenav">
   <a href="index.html">Search Student</a>
-  <a href="massupload.html">Upload Data</a>  
+  <a id="uploadData" style="display: none;" href="massupload.html">Upload Data</a>  
   <a href="#">Logout</a>
 </div>
 
-<div class="container_12" >
+<div class="container_table_12" >
 
 	<div class="grid_12">
       &nbsp;
@@ -88,7 +103,24 @@
   
 </div>
 
-
+<!-- <table class="table table-hover">
+  <thead>
+      <th></th><th></th><th></th>
+  </thead>
+  
+  <tbody>
+      <tr data-toggle="collapse" data-target="#accordion" class="clickable">
+          <td>Some Stuff</td>
+          <td>Some more stuff</td>
+          <td>And some more</td>
+      </tr>
+      <tr>
+          <td colspan="3">
+              <div id="accordion" class="collapse">Hidden by default</div>
+          </td>
+      </tr>
+  </tbody>
+</table> -->
 
 
 <div class="container_12 step" id="p_container">
@@ -96,7 +128,7 @@
   <div class="clear"></div>  
 
      <div class="grid_12">
-        <table style="width:100%" id="resultstable" class="resultstable">     
+        <!-- <table style="width:100%" class="resultstable">     
           <tr class="row-header">
               
                
@@ -111,9 +143,21 @@
                </th>
 
               
-          </tr>  
-        </table> 
-    </div>
+          </tr>
+          <tbody id="resultstable">
+        </tbody>  
+        </table>  -->
+
+        <table class="fold-table resultstable">
+          <thead>
+            <tr class="row-header">
+              <th>Student Name</th><th>Certificate Type</th><th>Status</th>
+            </tr>
+          </thead>
+          <tbody style="width: 10%;" id="resultstable">
+          </tbody>
+        </table>
+      
 </div>
 
 
